@@ -23,7 +23,7 @@ type FeedForward struct {
 }
 
 /*
-Initialize the neural network;
+Initialize the neural network:
 the 'inputs' value is the number of inputs the network will have,
 the 'hiddens' value is the number of hidden nodes and
 the 'outputs' value is the number of the outputs of the network.
