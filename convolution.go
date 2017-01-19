@@ -1,5 +1,3 @@
-// http://www.nada.kth.se/~snilsson/concurrency/
-
 package main
 
 import (
@@ -15,9 +13,9 @@ func init() {
 	log.SetFlags(0) // no extra info in log messages
 	//log.SetOutput(ioutil.Discard) // turns off logging
 
-	numcpu := runtime.NumCPU()
+	numcpu := runtime.NumCPU() // maximize CPU usage
 	log.Println("CPU count:", numcpu)
-	runtime.GOMAXPROCS(numcpu) // Try to use all available CPUs.
+	runtime.GOMAXPROCS(numcpu) 
 }
 
 func main() {
@@ -70,7 +68,6 @@ func Convolve(u, v Vector) (w Vector) {
 		}
 		// These goroutines share memory, but only for reading.
 		go func(i, j int) {
-			//before := time.Now()
 			for k := i; k < j; k++ {
 				w[k] = mul(u, v, k)
 			}
